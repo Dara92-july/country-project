@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [countries, setCountries] = useState<any[]>([]);
+  const [countries, setCountries] = useState<any>([]);
 
   const fetchCountries = () => {
     axios.get(import.meta.env.VITE_BASEURL)
@@ -24,7 +24,7 @@ function App() {
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
         {
-          countries.map((item, i) => (
+          countries.map((item:any, i:any) => (
             <div key={i} className='rounded shadow p-4 text-center border'>
               <img
                 src={item.flags?.png || item.flags?.svg}
